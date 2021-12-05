@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  nftport:
+    image: "nftport"
+    build: "./nftport/"
+    command:
+      - /bin/bash
+      - -c
+      - |
+        python /nftport/manage.py makemigrations
+        python /nftport/manage.py migrate
+        python /nftport/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - ethereum
+      - db
+
+  ethereum:
+    image: "ethereum-api"
+    build:
+      context: web3_gateway
+    command: node app.js
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+
+  db:
+    image: postgres:13.2
+    environment:
+      - POSTGRES_USER=tanmay
+      - POSTGRES_PASSWORD=tanmay
+      - POSTGRES_DB=nftport_db
+      - POSTGRES_PORT=5432
+    volumes:
+      - nftport:/var/lib/postgresql/data
+
+volumes:
+    nftport:
