@@ -4,7 +4,7 @@
 
 ### NOTE:
 1. When inserting the data, we must use Celery/RedisQueue so that user can get the response fast instead of waiting till all the contents are fetched. Didn't get the time to implement it.
-2. I have used Synchronous calls only for this API as request was blocking many times. Also instead of fetching all pages and all examples I used only 1 page with 10 examples.
+2. I have used Synchronous calls only for this API as request was blocking many times. Also instead of fetching all pages and all nfts I used only 1 page with 10 nfts.
 3. A snippet of asynchrononous code is there in nft_scrap.py file.
 4. REST API is in Development mode.
 
@@ -55,6 +55,12 @@ docker-compose up
 
 
 
+### Process for scraping the NFTs
+- Request sent to NFTport for getting the token id of the contract_address
+- Using web3 sample get the token_uri of the contract_address
+- Sending request to token_uri for getting the meta_data of the token
+- Sending request to image_url for getting the image(Only implemented in REST API calls)
+
 ### Scaling - how would you do it?
 
 1. As there are 100k+ transactions in the blockchain, we will use asynchronous architecture so that we can fetch the data in parallel.
@@ -66,6 +72,3 @@ docker-compose up
 7. Using Rediqueue/Celery for messaging queue and asynchronous tasks.
 8. Using indexes in Table column which will make search faster.
 9. Using Nosql database instead of relational database or a layer of Nosql database over Relational Database. When data is entered in RDBMS, asynchronously trigger a job to index data in NoSql database.
-
-
-
