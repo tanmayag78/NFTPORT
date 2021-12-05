@@ -14,7 +14,15 @@ Clone the repo and move to the repo directory and run the below command
 ```
 docker-compose up
 ```
-
+### Script for scanning the NFTs
+- conda env create -f environment.yml
+- conda activate nftport
+- python nft_scrap.py
+- *Note*
+  - A pickle file will be saved by the name of nft_data.pkl and can be loaded by using joblib.load("nft_data.pkl") and later can be stored in DB.
+  - Only the first 2 pages are scanned of the first collections
+  - Free API key is have some limit and when using sleep script was taking lot of time.
+  
 ### API Endpoints:
 
 - GET /nfts
