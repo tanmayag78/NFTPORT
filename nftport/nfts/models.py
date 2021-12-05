@@ -12,3 +12,6 @@ class NftData(models.Model):
     description = models.TextField(null=True, blank=True)
     image_uri = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
+
+    class Meta:
+        unique_together = ('contract_address', 'token_id')

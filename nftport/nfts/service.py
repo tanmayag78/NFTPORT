@@ -39,10 +39,10 @@ def process_contracts(contract_address):
                         num_objs_created += 1
                     except IntegrityError as e:
                         logger.exception(traceback.format_exc())
-                        error_msg = f"Error saving metadata: {e}"
                     except Exception as e:
                         logger.exception(traceback.format_exc())
                         error_msg = f"Error saving metadata: {e}"
+                        break
     else:
         logger.error(
             f"Status: {r.status_code} while requesting NftPort endpoint. Details: r.content"
