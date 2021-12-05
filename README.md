@@ -17,12 +17,12 @@ docker-compose up
 
 ### API Endpoints:
 
-- GET /nft
+- GET /nfts
   - Params-
     - token_id: NFT Token ID
     - contract_address: Contract Address
     - name: Name
-- POST /nft
+- POST /nfts
   - Payload
     - contract_address*
 
@@ -40,7 +40,7 @@ docker-compose up
     - contract_address
     - token_id
   - Example- For Retrieving NFTs
-    - ```curl --request GET 'http://localhost:8000/nfts/?contract_address=0x12d2d1bed91c24f878f37e66bd829ce7197e4d14&name=GalacticApe %231005'```
+    - ```curl --request GET 'http://localhost:8000/nfts/?contract_address=0x12d2d1bed91c24f878f37e66bd829ce7197e4d14'```
   - For Retrieving NFT
     - ```curl --request GET 'http://localhost:8000/nfts/?contract_address=0x12d2d1bed91c24f878f37e66bd829ce7197e4d14&token_id=1004'```
 
