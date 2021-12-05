@@ -21,7 +21,8 @@ docker-compose up
 - *Note*
   - A pickle file will be saved by the name of nft_data.pkl and can be loaded by using joblib.load("nft_data.pkl") and later can be stored in DB.
   - Only the first 2 pages are scanned of the first collections
-  - Free API key is have some limit and when using sleep script was taking lot of time.
+  - Free API key have limit constraint and when using sleep b/w concurrent requests script was taking lot of time.
+  - Used both synchronous and asynchronous calls. Ideally it should be totally asynchronous.
   
 ### API Endpoints:
 
