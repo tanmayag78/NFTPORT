@@ -1,4 +1,4 @@
-# NFTPort Backend Test Assignment
+# Scrap NFTs from NFTPort and REST APIs to retreive those NFTs
 
 ### Getting NFTs
 
