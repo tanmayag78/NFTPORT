@@ -2,11 +2,10 @@
 
 ### Getting NFTs
 
-### NOTE:
-1. When inserting the data, we must use Celery/RedisQueue so that user can get the response fast instead of waiting till all the contents are fetched. Didn't get the time to implement it.
-2. I have used Synchronous calls only for this API as request was blocking many times. Also instead of fetching all pages and all nfts I used only 1 page with 10 nfts.
-3. A snippet of asynchrononous code is there in nft_scrap.py file.
-4. REST API is in Development mode.
+### TODO:
+1. When inserting the data, we must use Celery/RedisQueue so that user can get the response fast instead of waiting till all the contents are fetched. 
+2. Asynchrononous calls blocking many times. For now used only 1 page with 10 nfts.
+4. Refactor REST API.
 
 
 ### Deploy REST API: 
